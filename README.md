@@ -1,5 +1,7 @@
 # ProzhitoAutoencoder2Cluster
 
+This is part of an interdisciplinary collaboration to understand the trajectory of public perception in 20th century Russia. Collaborators include historian Misha Melnichenko, Dr. Tatyana Gershkovich and Dr. Simon DeDeo.
+
 Description:  The following scripts are intended to allow the user to 1) select key root words in Russian, 2) search the Prozhito database (collection of Russian diaries from 1600-modern day) for instances of those words and pull the word vector representations of those words, 3) compress the word vectors using an autoencoder and 4) cluster the final product.   
 
 # Installation
