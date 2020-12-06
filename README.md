@@ -23,6 +23,7 @@ Notes: currently this repository is insufficient to run the first half of the co
 * **autoencoderhelperfunctions**:  contains many relevant functions, including the one to run HDBSCAN + an ML classifier
 
 # Current Requirements:
+see yaml for now, req.txt in progress
 pandas, numpy, nltk, math, gensim, punctuation, Word2Vec(from gensim.models), sqlalchemy, punctuation(from string), sub (from re), tensorflow, keras, spatial(from scipy), HDBSCAN, sklearn , plotly, hiplot(optional), matplotlib
 
 
