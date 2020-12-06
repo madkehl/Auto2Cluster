@@ -1,15 +1,14 @@
-#basic imports
-#basic imports
+# basic imports
 import pandas as pd
 import numpy as np
 import math
-#ml stuff
+# ml stuff
 import tensorflow as tf
 from tensorflow import keras
 from keras.layers import Dense
 from keras.models import Model
 from keras.models import Sequential
-#metrics + sklearn
+# metrics + sklearn
 from scipy import spatial
 from hdbscan import HDBSCAN
 from sklearn import metrics
@@ -17,18 +16,17 @@ from sklearn import decomposition
 from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-#data visualization
+# data visualization
 import plotly.graph_objs as go
 import plotly
 import hiplot as hip
 
 
-#this function can extract any named layer from a given model
-#takes str, keras model, original dataframe
+# this function can extract any named layer from a given model
+# takes str, keras model, original dataframe
 def layer_extract(layer_name, mod, v_dat):
     layer_name = layer_name
-    intermediate_layer_model = Model(inputs=mod.input,
-                                 outputs=mod.get_layer(layer_name).output)
+    intermediate_layer_model = Model(inputs=mod.input, outputs=mod.get_layer(layer_name).output)
     intermediate_output = intermediate_layer_model.predict(v_dat)
     es = intermediate_output
     
@@ -36,25 +34,27 @@ def layer_extract(layer_name, mod, v_dat):
     for n in es[1:len(es)]:
         yp = np.vstack((yp, n))
         
-    return(yp)
+    return yp
 
-#this function will return a list of cosine distances between matched rows of two given dataframes
-#takes two data frames
+
+# this function will return a list of cosine distances between matched rows of two given dataframes
+# takes two data frames
 def get_cos(dft, dfp):
     cos_val = []
     for i, j in enumerate(dft):
         p = dfp[i]
         dist = spatial.distance.cosine(j, p)
-        if math.isnan(dist) == False:
+        if math.isnan(dist) is False:
             cos_val.append(1 - dist)
             
-    return(cos_val)
+    return cos_val
 
-#this saves a graph illustrating points within a 3 dimensional space (if input is more than 3 dim, takes first 3)
-#takes data, labels for data, color scheme, can specify color scale or name if desired
+
+# this saves a graph illustrating points within a 3 dimensional space (if input is more than 3 dim, takes first 3)
+# takes data, labels for data, color scheme, can specify color scale or name if desired
 def make_graph(X1, hovert, marking, colors = 'Inferno', name = '150_80_30_8np_712tf.html', PCA = False):
     
-    if PCA == True:
+    if PCA:
         pca = decomposition.PCA(n_components= 3, random_state = 12)
         pca.fit(X1)
         X1 = pca.transform(X1)
