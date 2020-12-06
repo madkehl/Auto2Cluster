@@ -52,23 +52,23 @@ def get_cos(dft, dfp):
 
 # this saves a graph illustrating points within a 3 dimensional space (if input is more than 3 dim, takes first 3)
 # takes data, labels for data, color scheme, can specify color scale or name if desired
-def make_graph(X1, hovert, marking, colors = 'Inferno', name = '150_80_30_8np_712tf.html', PCA = False):
+def make_graph(X1, hovert, marking, colors='Inferno', name='150_80_30_8np_712tf.html', pca_bool=False):
     
-    if PCA:
-        pca = decomposition.PCA(n_components= 3, random_state = 12)
+    if pca_bool:
+        pca = decomposition.PCA(n_components=3, random_state=12)
         pca.fit(X1)
         X1 = pca.transform(X1)
     
-    x = X1[:,0]
-    y = X1[:,1]
-    z = X1[:,2]
+    x = X1[:, 0]
+    y = X1[:, 1]
+    z = X1[:, 2]
 
 
     fig = go.Figure(data=[go.Scatter3d(
         x=x,
         y=y,
         z=z,
-        hovertext = hovert,
+        hovertext=hovert,
         mode='markers+text',
         marker=dict(
             size=3,
