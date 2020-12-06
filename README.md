@@ -8,7 +8,9 @@ Description:  The following scripts are intended to allow the user to 1) select 
         
 Notes: currently this repository is insufficient to run the first half of the code (selecting entries based on key stems and vectorizing them) It is missing both a) the sql connection/permissions to access the full database b) the russian language word vector model and c) several large files exceeding the 100 MB specification. Making these available for public use is still a work in progress.
 
-# Files included:
+# Folders and files included:
+* autoencoders:
+    * contains jupyter notebooks for each of the genres used 
 * **keyword_vecs (will not work with current repository resources)**: this extracts relevant sentences and convert to word vectors
 * **autoencoder_stikhi**:  this is an autoencoder set up used to compress the vector, written as a sort of psuedo function.  I found it easier to adjust the various parameters in this way as opposed to using a traditional function.
 * **hdbscan_clusterer**:  this clusters the compressed vectors.  Since the HDBSCAN algorithm marks various points as noise, there is also an option to fit noise points retroactively with both a svm and rf classifier.  These are rather crude at the moment and do not have grid search etc built in to them.  Additionally, it is suggested to examine the clusters with and without noise, to make sure that fitting the noise points post hoc is a sensible thing to do
