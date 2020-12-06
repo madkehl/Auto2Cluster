@@ -3,7 +3,7 @@
 This is part of an interdisciplinary collaboration to understand the trajectory of public perception in 20th century Russia. Collaborators include historian Misha Melnichenko, Dr. Tatyana Gershkovich and Dr. Simon DeDeo.
 
 Description:  The following scripts are intended to allow the user to 1) select key root words in Russian, 2) search the Prozhito database (collection of Russian diaries from 1600-modern day) for instances of those words and pull the word vector representations of those words, 3) compress the word vectors using an autoencoder and 4) cluster the final product.   
-
+Process of converting ipynb to py in progress
 # Installation
         
 Notes: currently this repository is insufficient to run the first half of the code (selecting entries based on key stems and vectorizing them) It is missing both a) the sql connection/permissions to access the full database b) the russian language word vector model and c) several large files exceeding the 100 MB specification. Making these available for public use is still a work in progress.
