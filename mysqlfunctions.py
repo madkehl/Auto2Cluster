@@ -1,5 +1,5 @@
-import pandas as pd
 import sqlalchemy
+import pandas as pd
 
 
 def load_my_sql(password):
