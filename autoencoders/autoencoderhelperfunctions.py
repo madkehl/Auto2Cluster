@@ -97,35 +97,34 @@ def make_graph2d(X1, hovert, marking, colors = 'Inferno', name = '150_80_30_8np_
     x = X1[:,0]
     y = X1[:,1]
 
-
-
     fig = go.Figure(data=[go.Scatter(
         x=x,
         y=y,
-        hovertext = hovert,
+        hovertext=hovert,
         mode='markers+text',
         marker=dict(
             size=3,
        # color =  n,
-            color =  marking,                # set color to an array/list of desired values
+            color=marking,                # set color to an array/list of desired values
             colorscale=colors,   # choose a colorscale
             opacity=0.8,
-            showscale = True
+            showscale=True
         )
     )])
-
-
 # tight layout
     fig.update_layout(width = 1000, height = 500, margin=dict(l=0, r=0, b=0, t=0))
 
     plotly.offline.plot(fig, filename= name)
 
-# this function does not actually create a hiplot object, but converts keras history into a list of dictionaries interperable
-#by hiplot.  takes the history object and a series of relevant labels
+
+# this function does not actually create a hiplot object,
+# but converts keras history into a list of dictionaries interpretable
+# by hiplot.  takes the history object and a series of relevant labels
+
 def create_hiplot(hist_ob, activ, lr,CS, CSR, encoder, KI, lf):
     hist_df = pd.DataFrame(hist_ob.history)
     hist = hist_df.to_dict('records')
-    trial_num = 0
+    # trial_num = 0
     for i in hist:
         dict1 = {'activation': activ, 'lr': lr,'CS': CS, 'CSR': CSR, 'encoder': encoder, 'KI': KI, 'lossfxn': lf}
         i = i.update(dict1)
