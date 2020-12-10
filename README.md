@@ -17,7 +17,9 @@ Notes: currently this repository is insufficient to run the first half of the co
     * contains some pngs of various plots but also plotting functions
 * hdbscan:
     * contains clusterer configs for each of the genres
-* **keyword_vecs (will not work with current repository resources)**: this extracts relevant sentences and convert to word vectors
+* keyword_vecs:
+	* **keyword_vecs (will not work with current repository resources)**: this extracts relevant sentences and convert to word vectors
+ 	* data folder with files
 * **autoencoder_stikhi**:  this is an autoencoder set up used to compress the vector, written as a sort of psuedo function.  I found it easier to adjust the various parameters in this way as opposed to using a traditional function.
 * **hdbscan_clusterer**:  this clusters the compressed vectors.  Since the HDBSCAN algorithm marks various points as noise, there is also an option to fit noise points retroactively with both a svm and rf classifier.  These are rather crude at the moment and do not have grid search etc built in to them.  Additionally, it is suggested to examine the clusters with and without noise, to make sure that fitting the noise points post hoc is a sensible thing to do
 * **autoencoderhelperfunctions**:  contains many relevant functions, including the one to run HDBSCAN + an ML classifier
