@@ -1,18 +1,14 @@
-import nltk
-# connect to sql imports
-import sqlalchemy
-import pymysql
 import pandas as pd
-import random
+import os
+os.chdir("../mysql")
 from mysqlfunctions import load_my_sql, result2bio
-
+os.chdir("../misc. data pulls")
 
 punct = [',', '.', '—', ')', '(', '>', ':', "''", '``', '*', ';', '?', '!', '...', '[', ']', '«', '»', '?', '„', '“', '…']
 connection = load_my_sql('')
 all_diarynums = connection.execute('SELECT diary FROM notes;')
 
 for_tatyana = list(set([i[0] for i in all_diarynums.fetchall()]))
-#print(len(for_tatyana))
                      
 reflection_fn = []
 reflection_sn = []

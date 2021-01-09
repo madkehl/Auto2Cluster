@@ -14,6 +14,15 @@ def load_my_sql(password):
     return connection
 
 
+def resultToList(connec, diarynum):
+    trial = connec.execute('SELECT text FROM notes WHERE id = ' + diarynum + ';')
+    ResultSet = trial.fetchall()
+    koshka_list = []
+    for n in ResultSet:
+        koshka_list.append(n[0])
+    return koshka_list
+
+
 def retrieve_notes(connec, id_num):
     """
     retrieve all info for given ID
