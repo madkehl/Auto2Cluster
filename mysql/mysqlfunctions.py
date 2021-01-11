@@ -58,6 +58,12 @@ def result2bio(connec, diarynum):
 
 
 def sample(df, num_samples):
+    """
+
+    :param df:
+    :param num_samples:
+    :return:
+    """
     dice = range(max(df['new_entry_type']) + 1)
     for_tatyana = []
     id_col = []
@@ -74,6 +80,13 @@ def sample(df, num_samples):
 
 
 def full_path_to_entries(df, n, passw):
+    """
+
+    :param df:
+    :param n: number of samples
+    :param passw: passw object
+    :return:
+    """
     connec = load_my_sql(passw)
     full_entries = []
     ids, entry_types = sample(df, n)
@@ -124,6 +137,11 @@ def full_path_to_entries(df, n, passw):
 
 
 def print_answers(df):
+    """
+    Just prints df
+    :param df: full_entries_df
+    :return:
+    """
     for n in df.iterrows():
         i = n[1]
 
