@@ -15,6 +15,12 @@ def load_my_sql(password):
 
 
 def resultToList(connec, diarynum):
+    """
+    used in keyword_vecs
+    :param connec: connection object
+    :param diarynum: the diary number
+    :return: list of texts for that diarynum
+    """
     trial = connec.execute('SELECT text FROM notes WHERE id = ' + diarynum + ';')
     ResultSet = trial.fetchall()
     koshka_list = []
