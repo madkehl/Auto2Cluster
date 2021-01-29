@@ -8,6 +8,7 @@ punct = [',', '.', '—', ')', '(', '>', ':', "''", '``', '*', ';', '?', '!', '.
 connection = load_my_sql('')
 all_diarynums = connection.execute('SELECT diary FROM notes;')
 
+
 for_tatyana = list(set([i[0] for i in all_diarynums.fetchall()]))
                      
 reflection_fn = []

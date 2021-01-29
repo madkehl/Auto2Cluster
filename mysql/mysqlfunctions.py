@@ -56,6 +56,29 @@ def result2bio(connec, diarynum):
         result_ls.append([n[0], n[1], n[2]])
     return result_ls
 
+def full_stat_extract(connec, diarynum):
+    """
+    returns bio of given diarynum
+    :param connec: connection object from load sql
+    :param diarynum: id num for person
+    :return: list of the given id info
+    """
+    pub_status = connec.execute('SELECT status FROM diary WHERE id = ' + str(diarynum) + ';')
+    pub = pub_status.fetchall()
+    trans = connec.execute('SELECT person FROM diary WHERE id = ' + str(diarynum) + ';')
+    trans = trans.fetchall()
+    if len(trans) < 1:
+        # relevant when no personal data exists
+        return [[None, None, None, None, None, None]]
+
+    bio_info = connec.execute('SELECT firstName, lastName, info, gender, birthDay FROM persons WHERE id = ' + str(trans[0][0]) + ';')
+    result_set = bio_info.fetchall()
+    
+    result_ls = []
+    for n in result_set:
+        print(n)
+        result_ls.append([n[0], n[1], n[2], n[3], n[4], pub])
+    return result_ls
 
 def sample(df, num_samples):
     """
